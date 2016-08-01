@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Clicker</title>
+</head>
+<body>
+    <ul id="cat-list"></ul>
+    <div id="cat">
+
+<!--
+<div>
+    <script type="text/javascript">
+        ko.applyBindings({
+            cats: [
+                { name: 'Tabtab'},
+                { name: 'T-Bone'},
+                { name: 'Mr. T'},
+                { name: 'Sir Tabbingford Hathaway Fuzzbutt Whiskerington Esquire of Hairballshire'}
+            ]
+        });
+    </script>
+
+    <table>
+    <thead>
+        <tr><th>Name</th></tr>
+    </thead>
+    <tbody data-bind="foreach: cats">
+        <tr>
+            <td data-bind="text: $name"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+ -->
+
+
+        <h2 data-bind="text: currentCat().name"></h2>
+        <h2 data-bind="text: currentCat().title"></h3>        
+        <div data-bind="text: currentCat().clickCount"></div>
+        <img src="" alt="cute cat" data-bind="click: incrementCounter, attr: {src: currentCat().imgSrc}">
+
+        <div>
+            <h3>Nicknames:</h3>
+            <ul data-bind="foreach: currentCat().nicknames">
+                <li data-bind="text: $data"></li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="js/app.js"></script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+</script>
