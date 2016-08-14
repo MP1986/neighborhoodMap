@@ -73,7 +73,8 @@
 						zoom: 13
 					});
 
-
+      var model = {
+        currentMarker: null,
         var locations = [
           {title: 'Oakland Metro Operahouse', location: {lat: 37.797058, lng: -122.277791}},
           {title: 'Sudo Room', location: {lat: 37.835000, lng: -122.264186}},
@@ -81,7 +82,8 @@
           {title: "Eli's Mile High Club", location: {lat: 37.825785, lng: -122.269663}},
           {title: "Lake Merritt", location: {lat: 37.801239, lng: -122.258299}},
 
-        ];
+        ]
+};
 
         var largeInfowindow = new google.maps.InfoWindow();
         var bounds = new google.maps.LatLngBounds();
@@ -103,7 +105,9 @@
           // Create an onclick event to open an infowindow at each marker.
           marker.addListener('click', function() {
             populateInfoWindow(this, largeInfowindow),
-            this.setAnimation(google.maps.Animation.BOUNCE);
+            this.setAnimation(google.maps.Animation.BOUNCE),
+            setTimeout(function(){this.setAnimation(null)}, 2000);
+          // Why won't this work?  Gaaaaaaaaaaah.
           });
 
           bounds.extend(markers[i].position);
@@ -165,6 +169,18 @@
         }
       }
       document.getElementById('bounce-markers').addEventListener('click', toggleBounce);
+*/
+
+/*
+
+            marker.addEventListener('click', (function(marker) {
+                return function() {
+                    octopus.setCurrentCat(catCopy);
+                    catView.render();
+                };
+            })(cat));
+
+
 */
 
       }
