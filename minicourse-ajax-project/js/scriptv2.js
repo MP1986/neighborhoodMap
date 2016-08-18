@@ -47,8 +47,24 @@ function loadData() {
         $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
     });
 
+    // Experiment with loading my own API.
+
+    var yelpUrl = 'https://api.yelp.com/v2/search/?location=Oakland, CA' + cityStr + '&sort=newest&api-key=-_9uCWy3OoWrro-HR2ZbKg';
+    $.getJSON(nytimesUrl, function(data){
+
+        $nytHeaderElem.text('YELP.' + cityStr);
+
+        articles = data.response.docs;
+        for (var i = 0; i < articles.length; i++) {
+            var article = articles[i];
+            $nytHeaderElem.append('<li class="article">'+
+                '<a href="'+article.web_url+'">'+article.headline.main+'</a>'+
+                '<p>' + article.snippet + '</p>'+
+            '</li>');
+        };
 
 
+/*
     // load wikipedia data
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + cityStr + '&format=json&callback=wikiCallback';
     var wikiRequestTimeout = setTimeout(function(){
@@ -71,7 +87,7 @@ function loadData() {
             clearTimeout(wikiRequestTimeout);
         }
     });
-
+*/
 
 /*
 
