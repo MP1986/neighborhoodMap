@@ -127,7 +127,7 @@
             }]
         };
 
-        var viewModel = function(data) {
+        var ViewModel = function(data) {
             var self = this;
             self.filters = ko.observableArray(data.filters);
             self.filter = ko.observable('');
